@@ -2,28 +2,32 @@
 <template>
  <div class="home">
   <h1>Home</h1>
-  <p ref="p" >My name is {{ name }} and my age is {{ age }}</p>
-  <button @click="handleClick" >Click me</button>
+  <p  >{{ ninjaOne.name }} - {{ ninjaOne.age }}</p>
+  <button @click="updateNinjaOne" >Update Ninja One</button>
+  <h2>Reactive</h2>
+  <p>{{ ninjaTwo.name }} - {{ ninjaTwo.age }}</p>
+  <button @click="updateNinjaTwo" >Update Ninja Two</button>
+
  </div>
 </template>
 
 <script setup>
-  import {ref} from 'vue'
-  console.log('setup not needed inside script tag anymore')
+// remember reactive cannot be used with primitive values
+  import {ref, reactive} from 'vue'
+  console.log('Reactive : used for objects')
+  console.log('Reactive : cannot use for primitive values')
 
-  let name = ref('mario')
-  let age = ref(30)
+  const ninjaOne = ref({name: 'mario', age: 30})
+  const ninjaTwo = reactive({name: 'luigi', age: 35})
 
-  const p = ref(null)
-
-  const handleClick = () => {
-    console.log(p.value)
-    p.value.classList.add('test')
-    p.value.textContent = 'hello, ninjas'
+  const updateNinjaOne = () => {
+    ninjaOne.value.age = 40
   }
 
-  // old composition API we would need to return variables and methods, but we do not need to do that anymore
-
+  // using reactive you do not need to use .value to get the values
   
+  const updateNinjaTwo = () => {
+    ninjaOne.age = 45
+  }
 
 </script>
