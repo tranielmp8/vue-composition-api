@@ -1,29 +1,19 @@
-
 <template>
- <div class="home">
-  <h1>Home</h1>
-  <p ref="p" >My name is {{ name }} and my age is {{ age }}</p>
-  <button @click="handleClick" >Click me</button>
- </div>
-</template>
-
-<script setup>
+  <div class="home">
+    <h2>Home Page: Working with Props</h2>
+    <PostListVue :posts="posts" />
+    <!-- <PostList :posts="posts" /> -->
+   
+  </div>
+ </template>
+ 
+ <script setup>
   import {ref} from 'vue'
-  console.log('setup not needed inside script tag anymore')
-
-  let name = ref('mario')
-  let age = ref(30)
-
-  const p = ref(null)
-
-  const handleClick = () => {
-    console.log(p.value)
-    p.value.classList.add('test')
-    p.value.textContent = 'hello, ninjas'
-  }
-
-  // old composition API we would need to return variables and methods, but we do not need to do that anymore
-
-  
-
-</script>
+  import PostListVue from '@/components/PostList.vue'
+  // import PostList from '@/components/PostList.vue'
+  const posts = ref([
+    {title: ' Welcome to the blog', body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry. It\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', id: 1},
+    {title: 'Where do we begin', body: 'Learning Vue is fun, It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', id: 2},
+   ])
+ 
+ </script>
