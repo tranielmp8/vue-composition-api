@@ -9,9 +9,17 @@
 <script setup>
   import SinglePost from "./SinglePost.vue"
 
+  import { onMounted, onUnmounted, onUpdated } from 'vue'
+
   defineProps({
     posts: Array
   })
+
+  onMounted(() => {
+    console.log('component is mounted')
+  })
+  onUnmounted(() => console.log('component unmounted'))
+  onUpdated(() => console.log('Component Updated'))
 
 </script>
 
