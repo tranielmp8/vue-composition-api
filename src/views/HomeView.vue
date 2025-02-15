@@ -2,28 +2,23 @@
 <template>
  <div class="home">
   <h1>Home</h1>
-  <p ref="p" >My name is {{ name }} and my age is {{ age }}</p>
-  <button @click="handleClick" >Click me</button>
+  <p>Computed</p>
+  <input type="text" v-model="search" >
+  <p>Search Term: {{ search }}</p>
+  <!-- <div v-for="name in names" :key="name" >{{ name }}</div> -->
+  <div v-for="name in matchingNames" :key="name" >{{ name }}</div>
  </div>
 </template>
 
 <script setup>
-  import {ref} from 'vue'
-  console.log('setup not needed inside script tag anymore')
+  import {ref, computed} from 'vue'
+  console.log('Computed')
+  const search = ref('')
 
-  let name = ref('mario')
-  let age = ref(30)
+  const names = ref(['mario', 'yoshi', 'luigi', 'toad', 'peach', 'koopa', 'bowser'])
 
-  const p = ref(null)
-
-  const handleClick = () => {
-    console.log(p.value)
-    p.value.classList.add('test')
-    p.value.textContent = 'hello, ninjas'
-  }
-
-  // old composition API we would need to return variables and methods, but we do not need to do that anymore
-
-  
+  const matchingNames = computed(() => {
+    return names.value.filter((name) => name.includes(search.value))
+  })
 
 </script>
