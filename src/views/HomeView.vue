@@ -2,7 +2,7 @@
   <div class="home">
     <h2>Home Page: Ninja Blog</h2>
     <div v-if="error" > {{ error }} </div>
-    <div v-if="posts.length" >
+    <div v-if="posts.length"  class="layout">
       <PostList :posts="posts" />
       <TagCloud :posts="posts" />
       <Testing />

@@ -31,7 +31,7 @@
     margin-left: 20px;
   }
   header a.router-link-active {
-    color: #444;
+    color: #ff8800;
     font-weight: bold;
   }
 </style>

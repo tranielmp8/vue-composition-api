@@ -35,15 +35,14 @@ console.log(tags)
     padding: 10px;
   }
   .tag-cloud a {
-    color: #ff8800;
+    color: #777;
     text-decoration: none;
   }
 
   .tag-cloud a:hover {
-    color: white;
-    background: #ff8800;
-    text-decoration: none;
-    padding: .3px;
+    
+    color: #ff8800;
+    
   }
   .tag-cloud a.router-link-active {
     color: #ff8800;
